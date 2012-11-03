@@ -2,9 +2,9 @@ package com.thesis.executor;
 
 import javax.swing.JFrame;
 
-import com.thesis.panels.HeaderControlPanel;
+import com.thesis.panel.HeaderControlPanel;
 
-import static com.thesis.panels.helper.PanelHelper.Dimensions.FRAME_DIMENSION;;
+import static com.thesis.component.helper.PanelHelper.Dimensions.FRAME_DIMENSION;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
