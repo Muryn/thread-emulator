@@ -1,11 +1,11 @@
 package com.thesis;
 
-import com.thesis.executor.EmulatorExecutor;
+import com.thesis.executor.MainFrame;
 
 public class Main {
 
 	public static void main(String[] args) {
-		new EmulatorExecutor();
+		new MainFrame();
 	}
 
 }
