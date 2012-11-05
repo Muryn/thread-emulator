@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import com.thesis.panel.HeaderControlPanel;
 
-import static com.thesis.component.helper.PanelHelper.Dimensions.FRAME_DIMENSION;
+import static com.thesis.component.helper.ComponentHelper.Dimensions.FRAME_DIMENSION;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{

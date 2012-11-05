@@ -1,7 +1,10 @@
 package com.thesis.panel;
 
-import static com.thesis.component.helper.PanelHelper.Dimensions.HEADER_PANEL_MAX_DIMENSION;
-import static com.thesis.component.helper.PanelHelper.StyleButtonHelper.styleButton;
+import static com.thesis.component.helper.ComponentHelper.Dimensions.HEADER_PANEL_MAX_DIMENSION;
+import static com.thesis.component.helper.ComponentHelper.StyleButtonHelper.styleButton;
+import static com.thesis.component.helper.ComponentHelper.ConstraintsHelper.constraints;
+import static com.thesis.component.helper.ComponentHelper.PanelHelper.emptyPanel;
+
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import javax.swing.Box;
@@ -14,17 +17,29 @@ public class HeaderControlPanel extends JPanel {
 
 	final RunButton runButton = new RunButton();
 	final ExitButton exitButton = new ExitButton();
+	final ThreadControlPanel thread1Controls = new ThreadControlPanel("Thread #1 controls");
 
 	public HeaderControlPanel() {
 		setLayout(new GridBagLayout());
 		setMaximumSize(HEADER_PANEL_MAX_DIMENSION);
-		initButtons();
+
+		initComponent();
 	}
 
-	private void initButtons() {
-		add(styleButton(runButton, "Run threads", null));
-		add(Box.createRigidArea(new Dimension(100, 0)));//Empty space between buttons
-		add(styleButton(exitButton, "Exit emulator", null));
-	}
+	/**
+	 * +----------------------------+---------------------------+---------------------------+
+	 * |	Run button(0,0)			|	empty space(1,0)		|	Exit button(2,0)		|
+	 * +----------------------------+---------------------------+---------------------------+
+	 * |	Thread 1 controls(1,0)	|	Thread 2 controls(1,1)	|	Thread 3 controls(1,2)	|
+	 * +----------------------------+---------------------------+---------------------------+
+	 */
+	private void initComponent() {
+		//----------	First row	---------------//
+		add(runButton, constraints(0, 0));
+		add(emptyPanel(), constraints(1, 0));
+		add(exitButton, constraints(2, 0));
 
+		//----------	Second row	---------------//
+		add(emptyPanel(), constraints(0, 0));
+	}
 }
