@@ -3,6 +3,7 @@ package com.thesis.component.helper;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.Toolkit;
 
 import javax.swing.DefaultComboBoxModel;
@@ -10,13 +11,22 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class ComponentHelper {
 
+	public static class CustomColors {
+		public static final Color THREAD_CONTROL_BG = Color.decode("#C4C4C4");
+		public static final Color THREAD_CONTROL_BORDER_COLOR = Color.orange;
+	}
+
 	public static class Dimensions {
 		public static final Dimension FRAME_DIMENSION = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), 500);
-		public static final Dimension HEADER_PANEL_MAX_DIMENSION = new Dimension(30000, 500);
+		public static final Dimension HEADER_PANEL_MAX_DIMENSION = new Dimension(300000000, 500);
 		public static final Dimension THREAD_CONTROLS_DIMENSION =  new Dimension(300, 300);
+		public static final Dimension BUTTON_MAX_DIMENSION = new Dimension(80, 100);
+		public static final Dimension SEPARATOR_DEFAULT_DIMENSION = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), 10);
 	}
 
 	public static class StyleButtonHelper {
@@ -31,21 +41,31 @@ public class ComponentHelper {
 	}
 
 	public static class ConstraintsHelper {
+		private static final Insets DEFAULT_INSETS = new Insets(4, 2, 2, 2);
 		public static GridBagConstraints constraints(Integer x, Integer y) {
 			GridBagConstraints constraints = new GridBagConstraints();
 			constraints.gridx = x;
 			constraints.gridy = y;
+			constraints.insets = DEFAULT_INSETS;
 
 			return constraints;
 		}
 	}
 
 	public static class PanelHelper {
-		public static JPanel emptyPanel() {
+		public static JPanel emptyPanel(Color color) {
 			JPanel jPanel = new JPanel();
-			jPanel.setBackground(Color.yellow);
-
+			jPanel.setBackground(color == null ? Color.gray : color);
 			return jPanel;
+		}
+
+		public static JSeparator verticalSeparator(Dimension separatorDim, Color separatorColor) {
+			JSeparator jSeparator = new JSeparator(SwingConstants.HORIZONTAL);
+			jSeparator.setPreferredSize(separatorDim == null ? Dimensions.SEPARATOR_DEFAULT_DIMENSION : separatorDim);
+			//jSeparator.setBackground(separatorColor == null ? CustomColors.THREAD_CONTROL_BORDER_COLOR : separatorColor);
+			jSeparator.setBackground(separatorColor == null ? Color.red : separatorColor);
+
+			return jSeparator;
 		}
 	}
 
@@ -58,9 +78,6 @@ public class ComponentHelper {
 	}
 
 	public static class ComboboxHelper {
-		public static final DefaultComboBoxModel PRIORITIES_MODEL = new DefaultComboBoxModel(new String[] {"1", "2", "3","4", "5", "6", "7", "8", "9", "10"});
-		public static final DefaultComboBoxModel ORDER_MODEL = new DefaultComboBoxModel(new String[]{"None", "1", "2", "3"});
-
 		public static JComboBox combobox(String name, DefaultComboBoxModel model) {
 			JComboBox comboBox = new JComboBox(model);
 			comboBox.setName(name);

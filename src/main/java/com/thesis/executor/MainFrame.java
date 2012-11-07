@@ -1,10 +1,12 @@
 package com.thesis.executor;
 
+import static com.thesis.component.helper.ComponentHelper.Dimensions.FRAME_DIMENSION;
+
+import java.awt.GridBagLayout;
+
 import javax.swing.JFrame;
 
 import com.thesis.panel.HeaderControlPanel;
-
-import static com.thesis.component.helper.ComponentHelper.Dimensions.FRAME_DIMENSION;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
@@ -15,6 +17,7 @@ public class MainFrame extends JFrame{
 	}
 
 	private void initFrame(){
+		setLayout(new GridBagLayout());
 		setSize(FRAME_DIMENSION);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -22,7 +25,6 @@ public class MainFrame extends JFrame{
 	}
 
 	private void addPanels() {
-		//Main control panel
 		add(new HeaderControlPanel());
 	}
 }
