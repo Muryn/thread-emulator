@@ -2,8 +2,6 @@ package com.thesis.panel;
 
 import static com.thesis.component.helper.ComponentHelper.ConstraintsHelper.constraints;
 import static com.thesis.component.helper.ComponentHelper.PanelHelper.emptyPanel;
-import static com.thesis.component.helper.ComponentHelper.PanelHelper.verticalSeparator;
-import static com.thesis.component.helper.ComponentHelper.Dimensions.HEADER_PANEL_MAX_DIMENSION;
 
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -49,6 +47,5 @@ public class HeaderControlPanel extends JPanel {
 		add(thread2Controls, constraints(1, 1));
 		add(thread3Controls, constraints(2, 1));
 
-		add(verticalSeparator(null, null));
 	}
 }

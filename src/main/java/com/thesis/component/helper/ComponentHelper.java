@@ -19,6 +19,7 @@ public class ComponentHelper {
 	public static class CustomColors {
 		public static final Color THREAD_CONTROL_BG = Color.decode("#C4C4C4");
 		public static final Color THREAD_CONTROL_BORDER_COLOR = Color.orange;
+		public static final Color DEFAULT_PANEL_BACKGROUND = Color.gray;
 	}
 
 	public static class Dimensions {
@@ -42,13 +43,22 @@ public class ComponentHelper {
 
 	public static class ConstraintsHelper {
 		private static final Insets DEFAULT_INSETS = new Insets(4, 2, 2, 2);
-		public static GridBagConstraints constraints(Integer x, Integer y) {
+
+		public static GridBagConstraints constraints(Integer gridx, Integer gridy) {
 			GridBagConstraints constraints = new GridBagConstraints();
-			constraints.gridx = x;
-			constraints.gridy = y;
+			constraints.gridx = gridx;
+			constraints.gridy = gridy;
 			constraints.insets = DEFAULT_INSETS;
 
 			return constraints;
+		}
+
+		public static GridBagConstraints constraints(Integer gridx, Integer gridy, Integer gridHeight) {
+			GridBagConstraints constraint = constraints(gridx, gridy);
+			constraint.gridheight = gridHeight;
+			constraint.ipady = 50;
+
+			return constraint;
 		}
 	}
 
