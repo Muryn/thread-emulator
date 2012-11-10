@@ -1,8 +1,10 @@
-package com.thesis.executor;
+package com.thesis.frame;
 
 import static com.thesis.component.helper.ComponentHelper.Dimensions.FRAME_DIMENSION;
 import static com.thesis.component.helper.ComponentHelper.ConstraintsHelper.constraints;
+import static com.thesis.component.helper.ComponentHelper.PanelHelper.verticalSeparator;
 
+import java.awt.Color;
 import java.awt.GridBagLayout;
 
 import javax.swing.JFrame;
@@ -28,6 +30,7 @@ public class MainFrame extends JFrame{
 
 	private void addPanels() {
 		add(new HeaderControlPanel(), constraints(0, 0));
-		add(new ProcessVisualizerPanel(), constraints(0, 1));
+		add(verticalSeparator(null, Color.yellow), constraints(0, 1));
+		add(new ProcessVisualizerPanel(), constraints(0, 2));
 	}
 }

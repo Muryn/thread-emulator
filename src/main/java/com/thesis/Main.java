@@ -1,6 +1,6 @@
 package com.thesis;
 
-import com.thesis.executor.MainFrame;
+import com.thesis.frame.MainFrame;
 
 public class Main {
 

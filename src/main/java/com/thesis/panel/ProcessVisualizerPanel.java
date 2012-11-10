@@ -54,11 +54,19 @@ public class ProcessVisualizerPanel extends JPanel{
 		add(thread1Pause, constraints(0, 0));
 		add(thread1Stop, constraints(0, 1));
 		generateProgressPanels(1, 0);
-		
+
+		add(thread2Pause, constraints(0, 2));
+		add(thread2Stop, constraints(0, 3));
+		generateProgressPanels(1, 2);
+
+		add(thread3Pause, constraints(0, 4));
+		add(thread3Stop, constraints(0, 5));
+		generateProgressPanels(1, 4);
+
 	}
 
 	private void generateProgressPanels(Integer firstColumn, Integer rowNumber) {
-		for(int i = 0; i < 120; i ++) {
+		for(int i = 0; i < 95; i ++) {
 			add(emptyPanel(Color.red), constraints(firstColumn++, rowNumber, TWO_ROW_HEIGHT));
 		}
 	}

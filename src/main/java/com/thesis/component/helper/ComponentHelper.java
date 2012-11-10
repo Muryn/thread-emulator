@@ -24,9 +24,6 @@ public class ComponentHelper {
 
 	public static class Dimensions {
 		public static final Dimension FRAME_DIMENSION = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), 500);
-		public static final Dimension HEADER_PANEL_MAX_DIMENSION = new Dimension(300000000, 500);
-		public static final Dimension THREAD_CONTROLS_DIMENSION =  new Dimension(300, 300);
-		public static final Dimension BUTTON_MAX_DIMENSION = new Dimension(80, 100);
 		public static final Dimension SEPARATOR_DEFAULT_DIMENSION = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), 10);
 	}
 
