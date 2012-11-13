@@ -3,8 +3,10 @@ package com.thesis.component.helper;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -62,7 +64,7 @@ public class ComponentHelper {
 	public static class PanelHelper {
 		public static JPanel emptyPanel(Color color) {
 			JPanel jPanel = new JPanel();
-			jPanel.setBackground(color == null ? Color.gray : color);
+			//jPanel.setBackground(color == null ? Color.gray : color);
 			return jPanel;
 		}
 
@@ -93,4 +95,20 @@ public class ComponentHelper {
 		}
 	}
 
+	public static class PanelPainter {
+
+		public static void paint(List<JPanel> panels) {
+			
+			for(JPanel panel : panels) {
+				panel.setBackground(Color.yellow);
+
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
 }

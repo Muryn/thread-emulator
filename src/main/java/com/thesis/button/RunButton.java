@@ -6,9 +6,11 @@ import javax.swing.JButton;
 public class RunButton extends JButton {
 
 	private static final String DEFAULT_BUTTON_TITLE = "Run";
+	private RunButtonAction actionListener = new RunButtonAction();
 
 	public RunButton() {
 		super(DEFAULT_BUTTON_TITLE);
+		addActionListener(actionListener);
 	}
 
 	public RunButton(String buttonTitle) {

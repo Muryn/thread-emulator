@@ -3,6 +3,7 @@ package com.thesis.panel;
 import static com.thesis.component.helper.ComponentHelper.CustomColors.DEFAULT_PANEL_BACKGROUND;
 import static com.thesis.component.helper.ComponentHelper.ConstraintsHelper.constraints;
 import static com.thesis.component.helper.ComponentHelper.PanelHelper.emptyPanel;
+import static com.thesis.application.context.ApplicationContext.panels;
 
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -66,8 +67,13 @@ public class ProcessVisualizerPanel extends JPanel{
 	}
 
 	private void generateProgressPanels(Integer firstColumn, Integer rowNumber) {
+		VisualizerSection section = VisualizerSection.fromValue(rowNumber);
+
 		for(int i = 0; i < 95; i ++) {
-			add(emptyPanel(Color.red), constraints(firstColumn++, rowNumber, TWO_ROW_HEIGHT));
+			JPanel emptyPanel = emptyPanel(Color.red);
+
+			panels(section).add(emptyPanel);
+			add(emptyPanel, constraints(firstColumn++, section.value(), TWO_ROW_HEIGHT));
 		}
 	}
 
